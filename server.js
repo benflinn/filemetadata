@@ -8,7 +8,7 @@ var multer = require('multer');
 
 var upload = multer().single('uploadedFile');
 
-var port = app.get('port') || 5000;
+app.set('port', (process.env.PORT || 5000));
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + '/index.html'));
