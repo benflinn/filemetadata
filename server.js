@@ -8,6 +8,8 @@ var multer = require('multer');
 
 var upload = multer().single('uploadedFile');
 
+var port = app.get('port') || 5000;
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + '/index.html'));
 })
@@ -29,6 +31,6 @@ app.post('/fileUpload', function (req, res) {
   })
 })
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
+app.listen(app.get('port'), function () {
+  console.log('Example app listening on port '+app.get('port')+'!')
 })
